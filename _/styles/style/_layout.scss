@@ -1,0 +1,10 @@
+#layout-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+#layout-main {
+    display: block;
+    flex-grow: 1;
+}

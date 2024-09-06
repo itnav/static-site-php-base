@@ -1,0 +1,51 @@
+@use 'sass:map';
+@use 'sass:meta';
+
+/// メディアクエリのブレイクポイントのマップ
+$breakpoint: (
+    pc: infinity,
+    sp: 960px,
+);
+
+/// メディアクエリの最大値（後に計算されたものが格納される編数）
+$highest-breakpoint: null;
+@each $key, $value in $breakpoint {
+    @if ($value != infinity) and ($value > ($highest-breakpoint or 0)) {
+        $highest-breakpoint: $value;
+    }
+}
+
+/// メディアクエリを設定する
+///
+/// @param {keyof $breakpoint} $type  メディアクエリのタイプ
+/// @param {string}            $width メディアクエリの幅
+///
+/// @example
+/// ```scss
+/// @include media(pc) {
+///     font-size: 16px;
+/// }
+/// ```
+///
+/// @example
+/// ```scss
+/// @include media(sp) {
+///     font-size: 16px;
+/// }
+/// ```
+@mixin media($type) {
+    $width: map.get($breakpoint, $type);
+
+    // メディアクエリが infinity でない場合
+    @if $width != infinity {
+        @media (max-width: $width) {
+            @content;
+        }
+
+        // メディアクエリの最大幅を取得して、1px減らす
+    } @else {
+        @media (min-width: ($highest-breakpoint + 1px)) {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "ritwickdey.LiveServer",
+        "glenn2223.live-sass",
+        "mrmlnc.vscode-scss",
+        "christian-kohler.path-intellisense",
+        "bmewburn.vscode-intelephense-client",
+        "streetsidesoftware.code-spell-checker"
+    ]
+}

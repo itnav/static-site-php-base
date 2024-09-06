@@ -1,0 +1,33 @@
+@use 'sass:map';
+@use 'sass:math';
+
+/// Liquid Pixel の幅エイリアス
+$lpx-width: (
+    pc: 1440px,
+    sp: 375px,
+);
+
+/// Liquid Pixel
+///
+/// @param {number}                      $pixel ピクセル
+/// @param {(keyof $lpx-width) | number} $width メディアクエリのタイプ
+///
+/// @example
+/// ```scss
+/// .example {
+///     // 横幅が PC (1440px) の場合 180px となる可変単位を返す
+///     width: lpx(180px, pc);
+/// }
+/// ```
+///
+/// @example
+/// ```scss
+/// .example {
+///    // 横幅が SP (375px) の場合 180px となる可変単位を返す
+///     width: lpx(180px, sp);
+/// }
+/// ```
+@function lpx($pixel, $width) {
+    $width: map.get($lpx-width, $width) or $width;
+    @return calc(math.div($pixel, $width) * 100vw);
+}

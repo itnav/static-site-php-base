@@ -1,0 +1,16 @@
+#layout-header {
+    background-color: white;
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 16px;
+        font-size: 18px;
+    }
+
+    .nav-link {
+        text-decoration: none;
+    }
+}
