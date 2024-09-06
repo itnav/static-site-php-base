@@ -2,8 +2,8 @@
 
 /**
  * @param string               $dir_or_uri
- * @param array<string,string> $args
+ * @param array<string,string> $props
  */
-function render($uri, $args = array()) {
+function render($uri, $props = array()) {
     require_once $uri;
 }
