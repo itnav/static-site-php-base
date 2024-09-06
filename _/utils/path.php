@@ -6,7 +6,7 @@
 $project_dir = realpath(__DIR__ . '/../..');
 
 /**
- * ベースパスに対して相対パスを解決し、絶対パスを返します。
+ * ベースパスに対して相対パスを解決し、絶対パスを返却する。
  *
  * @param string $base         ベースパス
  * @param string $path         相対パス
