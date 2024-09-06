@@ -2,6 +2,7 @@
 require_once '../_/core.php';
 
 teleport_style('head', path_resolve(__DIR__, './style.min.css'));
+teleport_script('head', path_resolve(__DIR__, './script.js'), array('defer' => ''));
 ?>
 
 <?php setup_teleporter() ?>
@@ -10,7 +11,10 @@ teleport_style('head', path_resolve(__DIR__, './style.min.css'));
 <html lang="ja">
 
 <head>
-    <?php render('../_/layouts/head.php') ?>
+    <?php render('../_/layouts/head.php', array(
+        'title' => 'About',
+        'description' => 'This is a about page.'
+    )) ?>
 </head>
 
 <body id="layout-body">
